@@ -1,0 +1,16 @@
+name: Reuse
+
+on:
+  workflow_call:
+    inputs:
+      node_version:
+        type: string
+        default: 16.x
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ inputs.node_version }}
