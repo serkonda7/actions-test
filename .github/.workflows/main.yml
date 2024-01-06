@@ -1,0 +1,16 @@
+name: CI
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ inputs.node_version}}
+      - name: Node version
+        run: node --version
